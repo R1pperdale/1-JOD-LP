@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercicio de fixação</title>
+  </head>
+  <body>
+    <center>
+      <div class="container">
+        <div class="alunos">
+          <input type="text" id="al1" placeholder="Aluno 1" />
+          <input type="text" id="al2" placeholder="Aluno 2" />
+          <input type="text" id="al3" placeholder="Aluno 3" />
+          <input type="text" id="al4" placeholder="Aluno 4" />
+          <input type="text" id="al5" placeholder="Aluno 5" />
+        </div>
+        <div class="notas matematica">
+          <input typeero" id="mat1" placeholder="Nota 1 - Matemática" />
+          <input type="numero" id="mat2" placeholder="Nota 2 - Matemática" />
+          <input type="numero" id="mat3" placeholder="Nota 3 - Matemática" />
+          <input type="numero" id="mat4" placeholder="Nota 4 - Matemática" />
+          <input type="numero" id="mat5" placeholder="Nota 5 - Matemática" />
+        </div>
+        <div class="notas portugues">
+          <input type="numero" id="pt1" placeholder="Nota 1 - Português" />
+          <input type="numero" id="pt2" placeholder="Nota 2 - Português" />
+          <input type="numero" id="pt3" placeholder="Nota 3 - Português" />
+          <input type="numero" id="pt4" placeholder="Nota 4 - Português" />
+          <input type="numero" id="pt5" placeholder="Nota 5 - Português" />
+        </div>
+        <div class="notas historia">
+          <input type="numero" id="his1" placeholder="Nota 1 - História" />
+          <input type="numero" id="his2" placeholder="Nota 2 - História" />
+          <input type="numero" id="his3" placeholder="Nota 3 - História" />
+          <input type="numero" id="his4" placeholder="Nota 4 - História" />
+          <input type="numero" id="his5" placeholder="Nota 5 - História" />
+        </div>
+        <div class="resultado" id="result"></div>
+      </div>
+      <div class="botoes">
+        <button onclick="receberNotas()">Receber notas</button>
+        <button onclick="verificarMateria()">Calcular media de</button>
+        <select name="materia" id="materia">
+          <option value="mat">Matematica</option>
+          <option value="pt">Portugues</option>
+          <option value="his">Historia</option>
+        </select>
+      </div>
+    </center>
+    <script>
+      var matriz = [];
+      var alunos = [];
+      const result = document.getElementById("result");
+
+      function receberNotas() {
+        alunos = [
+          document.getElementById("al1").value,
+          document.getElementById("al2").value,
+          document.getElementById("al3").value,
+          document.getElementById("al4").value,
+          document.getElementById("al5").value,
+        ];
+
+        var mat = [
+          document.getElementById("mat1").value,
+          document.getElementById("mat2").value,
+          document.getElementById("mat3").value,
+          document.getElementById("mat4").value,
+          document.getElementById("mat5").value,
+        ];
+
+        var pt = [
+          document.getElementById("pt1").value,
+          document.getElementById("pt2").value,
+          document.getElementById("pt3").value,
+          document.getElementById("pt4").value,
+          document.getElementById("pt5").value,
+        ];
+        var his = [
+          document.getElementById("his1").value,
+          document.getElementById("his2").value,
+          document.getElementById("his3").value,
+          document.getElementById("his4").value,
+          document.getElementById("his5").value,
+        ];
+        matriz = [mat, pt, his];
+      }
+      function calcularMedia(materiaP) {
+        var soma = 0;
+        var media = 0;
+        var notas;
+        switch (materiaP) {
+          case "pt":
+            notas = matriz[1];
+            break;
+          case "mat":
+            notas = matriz[0];
+            break;
+          case "his":
+            notas = matriz[2];
+            break;
+        }
+        for (let i = 0; i < notas.length; i++) {
+          soma += parseFloat(notas[i]);
+        }
+        media = soma / notas.length;
+        result.textContent = `A média é ${media.toFixed(2)}`;
+        if (media >= 6) {
+          result.textContent += " - Aprovado";
+        } else if (media >= 4 && media < 6) {
+          result.textContent += " - Recuperação";
+        } else {
+          result.textContent += " - Reprovado";
+        }
+      }
+      function verificarMateria() {
+        var opt = document.getElementById("materia").value;
+        calcularMedia(opt);
+      }
+    </script>
+  </body>
+</html>
