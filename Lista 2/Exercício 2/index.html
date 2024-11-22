@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>03/09/2024 - LP - Bruno S.</title>
+    <style>
+      input {
+        margin: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="matriz-inputs">
+      <input type="number" id="val00" placeholder="[0][0]" />
+      <input type="number" id="val01" placeholder="[0][1]" />
+      <input type="number" id="val02" placeholder="[0][2]" /><br />
+      <input type="number" id="val10" placeholder="[1][0]" />
+      <input type="number" id="val11" placeholder="[1][1]" />
+      <input type="number" id="val12" placeholder="[1][2]" /><br />
+      <input type="number" id="val20" placeholder="[2][0]" />
+      <input type="number" id="val21" placeholder="[2][1]" />
+      <input type="number" id="val22" placeholder="[2][2]" /><br />
+      <input type="number" id="multiplicador" placeholder="Multiplicador" />
+      <button id="calcular">Calcular</button>
+    </div>
+
+    <h2>Original</h2>
+    <div id="matriz-original"></div>
+
+    <h2>Multiplicada</h2>
+    <div id="matriz-multiplicada"></div>
+
+    <script>
+      function numeros() {
+        return [
+          [
+            parseFloat(document.querySelector("#val00").value),
+            parseFloat(document.querySelector("#val01").value),
+            parseFloat(document.querySelector("#val02").value),
+          ],
+          [
+            parseFloat(document.querySelector("#val10").value),
+            parseFloat(document.querySelector("#val11").value),
+            parseFloat(document.querySelector("#val12").value),
+          ],
+          [
+            parseFloat(document.querySelector("#val20").value),
+            parseFloat(document.querySelector("#val21").value),
+            parseFloat(document.querySelector("#val22").value),
+          ],
+        ];
+      }
+
+      function resultado(matrix, elementId) {
+        const element = document.querySelector(`#${elementId}`);
+        element.innerHTML = matrix.map((row) => row.join(" ")).join("<br>");
+      }
+
+      function multiplicacao(matrix, multiplier) {
+        return matrix.map((row) => row.map((value) => value * multiplier));
+      }
+
+      document.querySelector("#calcular").addEventListener("click", () => {
+        const matrix = numeros();
+        const multiplier = parseFloat(
+          document.querySelector("#multiplicador").value
+        );
+
+        resultado(matrix, "matriz-original");
+        if (!isNaN(multiplier)) {
+          const multipliedMatrix = multiplicacao(matrix, multiplier);
+          resultado(multipliedMatrix, "matriz-multiplicada");
+        } else {
+          document.querySelector("#matriz-multiplicada").innerHTML =
+            "Multiplicador inválido.";
+        }
+      });
+    </script>
+  </body>
+</html>

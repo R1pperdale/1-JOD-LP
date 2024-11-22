@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>03/09/2024 - LP - Bruno S.</title>
+  </head>
+  <body>
+    <div id="resultado"></div>
+
+    <script>
+      function numeros() {
+        let matriz = [];
+
+        for (let i = 0; i < 3; i++) {
+          matriz[i] = [];
+          for (let j = 0; j < 3; j++) {
+            let valor = prompt("Digite os valores para colocar na tabela");
+            matriz[i][j] = valor;
+          }
+        }
+        return matriz;
+      }
+
+      function tipo(matriz) {
+        let output = "Valores e Tipos da Matriz:<br>";
+        matriz.forEach((linha, i) => {
+          linha.forEach((valor, j) => {
+            output += `Valor na posição [${i}][${j}]: ${valor} (Tipo: ${typeof valor})<br>`;
+          });
+        });
+        return output;
+      }
+
+      function resultado() {
+        const matriz = numeros();
+        const resultadoDiv = document.querySelector("#resultado");
+        resultadoDiv.innerHTML = tipo(matriz);
+      }
+
+      resultado();
+    </script>
+  </body>
+</html>

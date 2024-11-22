@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LP - 22/10/2024 - Bruno S.</title>
+  </head>
+  <body>
+    <script>
+      function analisarprodutos(produtos) {
+        return produtos.reduce(
+          (resultado, produto) => {
+            resultado.total += produto.preco;
+
+            if (produto.preco > resultado.maiscaro.preco) {
+              resultado.maiscaro = produto;
+            }
+
+            if (produto.preco < resultado.maisbarato.preco) {
+              resultado.maisbarato = produto;
+            }
+
+            return resultado;
+          },
+          {
+            total: 0,
+            maiscaro: produtos[0],
+            maisbarato: produtos[0],
+          }
+        );
+      }
+
+      const produtos = [
+        { nome: "Televisão ", preco: 6000 },
+        { nome: "Geladeira ", preco: 8000 },
+        { nome: "Sofá ", preco: 5000 },
+        { nome: "Microondas ", preco: 2000 },
+      ];
+
+      const resultado = analisarprodutos(produtos);
+      document.write(" Preço total: ", resultado.total);
+      document.write(" Produto mais caro: ", resultado.maiscaro.nome);
+      document.write(" Produto mais barato: ", resultado.maisbarato.nome);
+    </script>
+  </body>
+</html>

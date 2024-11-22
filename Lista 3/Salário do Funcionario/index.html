@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Benefícios</title>
+    <script src="Salário.js" defer></script>
+    <link rel="stylesheet" href="Salário.css">
+</head>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+
+    }
+</style>
+<body>
+    <h1>Calculadora de Benefícios</h1>
+    <form id="beneficioForm">
+        <label for="salario">Salário do funcionário:</label>
+        <input type="number" id="salario" name="salario" required><br><br>
+
+        <label for="beneficio">Escolha o benefício:</label>
+        <select id="beneficio" name="beneficio" onchange="mostrarCamposAdicionais()" required>
+            <option value="">Selecione</option>
+            <option value="1">Vale Refeição</option>
+            <option value="2">Vale Alimentação</option>
+            <option value="3">Vale Transporte</option>
+            <option value="4">Cesta Básica</option>
+            <option value="5">LOAS</option>
+            <option value="6">FGTS</option>
+            <option value="7">Salário Família</option>
+        </select><br><br>
+
+        <div id="camposAdicionais">
+            <div id="diasUteisCampo" style="display:none;">
+                <label for="diasUteis">Dias úteis no mês:</label>
+                <input type="number" id="diasUteis" name="diasUteis"><br><br>
+            </div>
+            <div id="faltasCampo" style="display:none;">
+                <label for="faltas">Número de faltas:</label>
+                <input type="number" id="faltas" name="faltas"><br><br>
+            </div>
+            <div id="filhosCampo" style="display:none;">
+                <label for="filhos">Número de filhos:</label>
+                <input type="number" id="filhos" name="filhos"><br><br>
+            </div>
+        </div>
+
+        <input type="submit" value="Calcular">
+    </form>
+    <p id="resultado"></p>
+</body>
+</html>

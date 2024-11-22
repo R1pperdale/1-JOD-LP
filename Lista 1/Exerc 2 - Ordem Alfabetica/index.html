@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>09/08/2024 - LP - Bruno S.</title>
+    <script>
+      window.onload = function () {
+        let palavras = [];
+
+        for (let i = 0; i < 4; i++) {
+          let palavra = prompt(`Digite a ${i + 1}° palavra`);
+          palavras.push(palavra);
+        }
+
+        palavras.sort();
+
+        const resultado = palavras.join(", ");
+
+        document.write("Palavras em ordem alfabética --> " + resultado);
+      };
+    </script>
+  </head>
+  <body></body>
+</html>

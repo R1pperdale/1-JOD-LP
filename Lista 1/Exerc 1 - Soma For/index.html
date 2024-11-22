@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>09/08/2024 - LP - Bruno S.</title>
+    <script>
+      let numeros = [];
+      for (let i = 0; i < 5; i++) {
+        let num = parseFloat(prompt(`Digite o ${i + 1}º número:`));
+        numeros.push(num);
+      }
+
+      let soma = 0;
+      for (let i = 0; i < numeros.length; i++) {
+        soma += numeros[i];
+      }
+
+      document.write("O Resultado da Soma é " + soma);
+    </script>
+  </head>
+  <body></body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>03/09/2024 - LP - Bruno S.</title>
+  </head>
+  <body>
+    <div id="resultado"></div>
+
+    <script>
+      function numeros() {
+        let matriz = [];
+        let valores = [];
+
+        for (let i = 0; i < 3; i++) {
+          matriz[i] = [];
+          for (let j = 0; j < 3; j++) {
+            let valor = parseFloat(
+              prompt("Digite os valores para colocar na tabela")
+            );
+            matriz[i][j] = valor;
+            valores.push(valor);
+          }
+        }
+        return { matriz, valores };
+      }
+
+      function exibir(matriz) {
+        return matriz.map((linha) => linha.join(" ")).join("<br>");
+      }
+
+      function maiorvalor(valores) {
+        return Math.max(...valores);
+      }
+
+      function resultado() {
+        const { matriz, valores } = numeros();
+        const n1 = maiorvalor(valores);
+
+        const resultadoDiv = document.querySelector("#resultado");
+        resultadoDiv.innerHTML = `
+                <h2>Números Digitados:</h2>
+                <p>${exibir(matriz)}</p>
+                <h2>Maior Número:</h2>
+                <p>${n1}</p>`;
+      }
+
+      resultado();
+    </script>
+  </body>
+</html>

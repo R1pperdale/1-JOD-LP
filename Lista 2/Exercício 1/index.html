@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>03/09/2024 - LP - Bruno S.</title>
+    <script>
+      function numeros() {
+        let matriz = [];
+        let numValores = 9;
+        for (let i = 0; i < 3; i++) {
+          matriz[i] = [];
+          for (let j = 0; j < 3; j++) {
+            let valor = Number(
+              prompt("Digite os valores para colocar na tabela")
+            );
+            matriz[i][j] = valor;
+          }
+        }
+        return matriz;
+      }
+
+      function exibir(matriz) {
+        let output = "Tabela de Valores:<br>";
+        matriz.forEach((linha) => {
+          output += linha.join(" ") + "<br>";
+        });
+        document.body.innerHTML += output;
+      }
+
+      function calcular(matriz) {
+        return matriz.flat().reduce((soma, valor) => soma + valor, 0);
+      }
+
+      function resultado() {
+        let matriz = numeros();
+        exibir(matriz);
+        let soma = calcular(matriz);
+        document.body.innerHTML +=
+          "A soma de todos os números é igual a " + soma;
+      }
+
+      window.onload = resultado;
+    </script>
+  </head>
+  <body></body>
+</html>

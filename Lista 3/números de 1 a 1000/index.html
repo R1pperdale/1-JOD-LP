@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imprimir Números</title>
+    <link rel="stylesheet" href="1a1000.css">
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        #result {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Números de 1 a 1000</h1>
+    <button onclick="printNumbers()">Imprimir Números</button>
+    <div id="result"></div>
+
+    <script>
+        function printNumbers() {
+            let resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = ""; // Limpa o conteúdo anterior
+            for (let i = 1; i <= 1000; i++) {
+                resultDiv.innerHTML += i + "<br>";
+            }
+        }
+    </script>
+</body>
+</html>

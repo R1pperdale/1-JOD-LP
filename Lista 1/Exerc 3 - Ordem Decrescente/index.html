@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>09/08/2024 - LP - Bruno S.</title>
+    <script>
+      function decrescente() {
+        let numeros = [];
+
+        for (let i = 0; i < 5; i++) {
+          let numero;
+          while (true) {
+            numero = parseFloat(prompt(`Digite o ${i + 1}º número:`));
+
+            if (!isNaN(numero)) {
+              numeros.push(numero);
+              break;
+            } else {
+              alert("Digite um Número");
+            }
+          }
+        }
+
+        numeros.sort((a, b) => b - a);
+
+        document.write("Esses são os Números em Ordem Decrescente ");
+        numeros.forEach((numero) => document.write(numero));
+      }
+
+      decrescente();
+    </script>
+  </head>
+  <body></body>
+</html>
